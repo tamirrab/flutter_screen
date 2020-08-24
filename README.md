@@ -26,4 +26,7 @@ bool isKeptOn = await Screen.isKeptOn;
 
 // Prevent screen from going into sleep mode:
 Screen.keepOn(true);
+
+// Reset the brightness:
+Screen.resetBrightness();
 ```
