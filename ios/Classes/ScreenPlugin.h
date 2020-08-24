@@ -1,5 +1,5 @@
 #import <Flutter/Flutter.h>
 
 @interface ScreenPlugin : NSObject<FlutterPlugin>
-extern NSNumber deviceBrightness;
+extern NSNumber *deviceBrightness;
 @end
