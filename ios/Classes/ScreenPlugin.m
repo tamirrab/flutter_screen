@@ -14,7 +14,7 @@
     result([NSNumber numberWithFloat:[UIScreen mainScreen].brightness]);
   }
   else if ([@"setBrightness" isEqualToString:call.method]) {    
-    self.deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
+    deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
 
     NSNumber *brightness = call.arguments[@"brightness"];
     [[UIScreen mainScreen] setBrightness:brightness.floatValue];
@@ -29,7 +29,7 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:b.boolValue];
   }
   else if ([@"resetBrightness" isEqualToString:call.method]) {
-    [[UIScreen mainScreen] setBrightness:self.deviceBrightness.floatValue];
+    [[UIScreen mainScreen] setBrightness:deviceBrightness.floatValue];
     result(nil);
   }
   else {
