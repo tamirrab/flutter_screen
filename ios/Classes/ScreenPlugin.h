@@ -1,6 +1,6 @@
 #import <Flutter/Flutter.h>
 
 @interface ScreenPlugin : NSObject<FlutterPlugin>
-@property (nonatomic) NSNumber deviceBrightness;
+@property (nonatomic, retain) NSNumber *deviceBrightness;
 
 @end
