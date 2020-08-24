@@ -1,5 +1,8 @@
 #import "ScreenPlugin.h"
 
+NSNumber *deviceBrightness;
+
+
 @implementation ScreenPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
@@ -14,7 +17,8 @@
     result([NSNumber numberWithFloat:[UIScreen mainScreen].brightness]);
   }
   else if ([@"setBrightness" isEqualToString:call.method]) {    
-    NSNumber deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
+    deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
+
     NSNumber *brightness = call.arguments[@"brightness"];
     [[UIScreen mainScreen] setBrightness:brightness.floatValue];
     result(nil);
