@@ -9,11 +9,14 @@
   [registrar addMethodCallDelegate:instance channel:channel];
 }
 
+NSNumber deviceBrighntnes;
+
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
   if ([@"brightness" isEqualToString:call.method]) {
     result([NSNumber numberWithFloat:[UIScreen mainScreen].brightness]);
   }
   else if ([@"setBrightness" isEqualToString:call.method]) {
+    deviceBrighntnes = [UIScreen mainScreen].brightness;
     NSNumber *brightness = call.arguments[@"brightness"];
     [[UIScreen mainScreen] setBrightness:brightness.floatValue];
     result(nil);
@@ -27,7 +30,7 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:b.boolValue];
   }
   else if ([@"resetBrightness" isEqualToString:call.method]) {
-    [[UIScreen mainScreen] setBrightness:nil];
+    [[UIScreen mainScreen] setBrightness:deviceBrighntnes];
     result(nil);
   }
   else {
