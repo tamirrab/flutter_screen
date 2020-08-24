@@ -14,8 +14,7 @@
     result([NSNumber numberWithFloat:[UIScreen mainScreen].brightness]);
   }
   else if ([@"setBrightness" isEqualToString:call.method]) {    
-    deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
-
+    NSNumber deviceBrightness = [NSNumber numberWithFloat: [UIScreen mainScreen].brightness];
     NSNumber *brightness = call.arguments[@"brightness"];
     [[UIScreen mainScreen] setBrightness:brightness.floatValue];
     result(nil);
